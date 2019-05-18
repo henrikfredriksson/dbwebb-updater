@@ -10,7 +10,9 @@
 
 
 const { AutoComplete } = require('enquirer');
-const exec = require('child_process').exec;
+const util = require('util');
+const exec = util.promisify(require('child_process').exec);
+
 
 const courses = [
     'databas',
@@ -20,7 +22,8 @@ const courses = [
     'oophp',
     'oopython',
     'python',
-    'webapp'
+    'webapp',
+    'all'
 ]
 
 const dbwebbDirectory = '~/dbwebb-kurser/'
@@ -40,6 +43,17 @@ const prompt = new AutoComplete({
 prompt.run()
     .then(answer => {
         const course = answer.substring(3)
+
+        if (course === 'all') {
+            courses.slice(0, -1).forEach(async course =>  {
+
+                await exec(`cd ${dbwebbDirectory}/${course} && dbwebb update`, (error, stdOut, stdErr) => {
+                    console.log(`Updating course-repo \x1b[42m\x1b[30m${course}\x1b[0m`);
+                    console.error(stdOut)
+                })
+            })
+            return
+        }
 
         console.log(`Updating course-repo \x1b[42m\x1b[30m${course}\x1b[0m`);
         exec(`cd ${dbwebbDirectory}/${course} && dbwebb update`, (error, stdOut, stdErr) => {
