@@ -1,6 +1,7 @@
 # dbwebb-updater
 
-A small CLI app to update dbwebb-course repos
+A small CLI app to update dbwebb-course repos.
+
 Requires dbwebb-cli
 
 ```
