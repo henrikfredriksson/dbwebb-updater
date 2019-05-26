@@ -40,6 +40,7 @@ const prompt = new AutoComplete({
     choices: options
 })
 
+console.log('\033c')
 prompt.run()
     .then(answer => {
         const course = answer.substring(3)
