@@ -9,10 +9,11 @@
  */
 
 
-const { AutoComplete } = require('enquirer');
-const util = require('util');
-const exec = util.promisify(require('child_process').exec);
+const { AutoComplete } = require('enquirer')
+const util = require('util')
+const exec = util.promisify(require('child_process').exec)
 
+const dbwebbDirectory = '~/dbwebb-kurser/'
 
 const courses = [
     'databas',
@@ -26,9 +27,8 @@ const courses = [
     'all'
 ]
 
-const dbwebbDirectory = '~/dbwebb-kurser/'
 
-let options = [];
+let options = []
 
 courses.forEach((course, index) => {
     options.push(`${index}: ${course}`)
