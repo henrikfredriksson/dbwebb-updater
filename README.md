@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/henrikfredriksson/dbwebb-updater.svg?branch=master)](https://travis-ci.com/henrikfredriksson/dbwebb-updater)
+
 # dbwebb-updater
 
 A small CLI app to update dbwebb-course repos.
