@@ -8,58 +8,51 @@
  * @version 1.0.0
  */
 
-
-const { AutoComplete } = require('enquirer')
-const util = require('util')
-const exec = util.promisify(require('child_process').exec)
-
-const dbwebbDirectory = '~/dbwebb-kurser/'
-
-const courses = [
-    'databas',
-    'design',
-    'htmlphp',
-    'javascript1',
-    'oophp',
-    'oopython',
-    'python',
-    'webapp',
-    'all'
-]
+'use strict';
 
 
-let options = []
+const util = require('util');
+const ora = require('ora');
+const exec = util.promisify(require('child_process').exec);
+const fs = require('fs');
+const clear = require('clear');
+const chalk = require('chalk');
 
-courses.forEach((course, index) => {
-    options.push(`${index}: ${course}`)
-})
 
-const prompt = new AutoComplete({
-    name: 'course',
-    message: 'Choose course-repo to update',
-    choices: options
-})
+const os = require('os');
 
-console.log('\033c')
-prompt.run()
-    .then(answer => {
-        const course = answer.substring(3)
 
-        if (course === 'all') {
-            courses.slice(0, -1).forEach(async course =>  {
+const file = os.homedir() + '/.dbwebb-update';
 
-                await exec(`cd ${dbwebbDirectory}/${course} && dbwebb update`, (error, stdOut, stdErr) => {
-                    console.log(`Updating course-repo \x1b[42m\x1b[30m${course}\x1b[0m`);
-                    console.error(stdOut)
-                })
-            })
-            return
-        }
+var config = JSON.parse(fs.readFileSync(file, 'utf8'));
 
-        console.log(`Updating course-repo \x1b[42m\x1b[30m${course}\x1b[0m`);
-        exec(`cd ${dbwebbDirectory}/${course} && dbwebb update`, (error, stdOut, stdErr) => {
-                console.error(stdOut)
-            })
-        })
-    .catch(console.error)
+const dbwebbDirectory = config.path;
+const courses = config.courses;
+
+
+const spinner = ora('Updating repos...');
+
+clear();
+
+spinner.start();
+
+
+const promises = courses.map(course => {
+    return new Promise((resolve, reject) => {
+        exec(`cd ${dbwebbDirectory}/${course} && git pull`, (error, stdOut, stdErr) => {
+            if (error) { reject(course); }
+            spinner.text = course;
+            resolve(course);
+        });
+    });
+});
+
+
+Promise.all(promises).then((e) => {
+    spinner.succeed('Courses succesfully updated');
+    spinner.stop(e);
+}).catch((error) => {
+    spinner.fail(`${chalk.bgRed.black('Error')}: Could not update course : ${chalk.green(error)}`);
+});
+
 
