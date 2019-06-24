@@ -1,34 +1,28 @@
 # dbwebb-updater
 
-A small CLI app to update dbwebb-course repos.
+A small CLI app to update dbwebb-course repos with .
 
 Requires [`dbwebb-cli`](https://github.com/dbwebb-se/dbwebb-cli)
 
 ## Configuration
 
-Set `dbwebbDirectory` to point to your courses folder, e.g.
+Create a `.dbwebb-update` in your home directory
 
-```js
-const dbwebbDirectory = '~/dbwebb-kurser/';
+```json
+{
+    "path": "~/dbwebb-kurser/",
+    "courses": [
+        "databas",
+        "design",
+        "htmlphp",
+        "javascript1",
+        "oophp",
+        "oopython",
+        "python",
+        "webapp"
+    ]
+}
 ```
-
-Add course to `courses` to be tracked, e.g.
-
-```js
-const courses = [
-    'databas',
-    'design',
-    'htmlphp',
-    'javascript1',
-    'oophp',
-    'oopython',
-    'python',
-    'webapp',
-    'all'
-];
-```
-
-The option `all` will update all courses in the `dbwebbDirectory`.
 
 ## Installation
 
@@ -53,5 +47,5 @@ yarn build # npm run build
 Install the application globally by running:
 
 ```sh
-$ install dbwebb-updater /usr/local/bin/dbwebb-update
+$ installer dbwebb-updater /usr/local/bin/dbwebb-update
 ```
