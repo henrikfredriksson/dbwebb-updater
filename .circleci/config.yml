@@ -8,5 +8,9 @@ jobs:
       — checkout
       - run:
             name: Install node packages
-                  command: |
-                        npm install
+            command: |
+                npm install
+      - run:
+            name: Start app
+            command: |
+                npm start
