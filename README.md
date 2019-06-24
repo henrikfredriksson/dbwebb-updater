@@ -1,8 +1,4 @@
-[![Build Status](https://travis-ci.com/henrikfredriksson/dbwebb-updater.svg?branch=master)](https://travis-ci.com/henrikfredriksson/dbwebb-updater)
-
-[![Build Status](https://scrutinizer-ci.com/g/henrikfredriksson/dbwebb-updater/badges/build.png?b=master)](https://scrutinizer-ci.com/g/henrikfredriksson/dbwebb-updater/build-status/master)
-
-# dbwebb-updater
+# dbwebb-updater [![Build Status](https://travis-ci.com/henrikfredriksson/dbwebb-updater.svg?branch=master)](https://travis-ci.com/henrikfredriksson/dbwebb-updater) [![Build Status](https://scrutinizer-ci.com/g/henrikfredriksson/dbwebb-updater/badges/build.png?b=master)](https://scrutinizer-ci.com/g/henrikfredriksson/dbwebb-updater/build-status/master)
 
 A small CLI app to update dbwebb-course repos with .
 
