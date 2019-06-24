@@ -6,6 +6,6 @@ jobs:
         working_directory: ~/repo
         steps:
             — checkout
-            - run:
+            - run: 
                 name: 'Install dependencies'
                 command: 'npm install'
