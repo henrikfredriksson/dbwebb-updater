@@ -1,16 +1,7 @@
 version: 2
 jobs:
-  build:
-    docker:
-      — image: circleci/node:7.10
-    working_directory: ~/repo
-    steps:
-      — checkout
-      - run:
-            name: Install node packages
-            command: |
-                npm install
-      - run:
-            name: Start app
-            command: |
-                npm start
+    build:
+        docker:
+            — image: circleci/node:7.10
+        working_directory: ~/repo
+        steps: — checkout
