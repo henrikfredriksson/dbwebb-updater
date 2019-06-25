@@ -52,7 +52,7 @@ Promise.all(promises).then((e) => {
     spinner.succeed('Courses succesfully updated');
     spinner.stop(e);
 }).catch((error) => {
-    spinner.fail(`${chalk.bgRed.black('Error')}: Could not update course : ${chalk.green(error)}`);
+    spinner.fail(`${chalk.bgRed.black('Error')}: Could not update course : ${chalk.red(error)}`);
 });
 
 
