@@ -15,6 +15,6 @@
         "ora": "^3.4.0"
     },
     "devDependencies": {
-        "nexe": "^3.2.0"
+        "nexe": "^3.3.2"
     }
 }
