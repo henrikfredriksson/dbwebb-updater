@@ -10,7 +10,7 @@ build:
   coverage:
     tests:
       override:
-        - command: yarn test
+        - command: 'yarn test'
           coverage:
             file: coverage/clover.xml
             # These formats are supported:
