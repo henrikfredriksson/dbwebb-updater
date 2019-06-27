@@ -6,7 +6,7 @@
     "start": "node ./src/app.js",
     "build": "cat ./src/app.js | nexe -r './node_modules/**/*'",
     "installer": "install dbwebb-updater /usr/local/bin/dbwebb-update",
-    "test": "jest",
+    "test": "jest --coverage",
     "test:watch": "jest --watch",
     "standard": "standard | snazzy",
     "standard:fix": "standard src/* --fix"
