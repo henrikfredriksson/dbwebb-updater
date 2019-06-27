@@ -32,16 +32,16 @@ function loadConfig () {
 
   try {
     const config = JSON.parse(fs.readFileSync(file, 'utf8'))
+
+    return {
+      path: config.path,
+      courses: config.courses
+    }
   } catch (error) {
     return {
       path: '',
       courses: ''
     }
-  }
-
-  return {
-    path: config.path,
-    courses: config.courses
   }
 }
 
