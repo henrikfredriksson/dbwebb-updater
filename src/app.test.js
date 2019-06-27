@@ -7,7 +7,7 @@ describe('Configuration', () => {
     expect(config).toHaveProperty('path')
   })
 
-  test('Configuration file shoule have property `courses`', () => {
+  test('Configuration file should have property `courses`', () => {
     const config = loadConfig()
 
     expect(config).toHaveProperty('courses')

@@ -14,7 +14,6 @@ const ora = require('ora')
 const clear = require('clear')
 const chalk = require('chalk')
 
-
 const os = require('os')
 const fs = require('fs')
 const util = require('util')
@@ -31,7 +30,14 @@ const exec = require('child_process').exec
 function loadConfig () {
   const file = os.homedir() + '/.dbwebb-update'
 
-  const config = JSON.parse(fs.readFileSync(file, 'utf8'))
+  try {
+    const config = JSON.parse(fs.readFileSync(file, 'utf8'))
+  } catch (error) {
+    return {
+      path: '',
+      courses: ''
+    }
+  }
 
   return {
     path: config.path,
@@ -58,7 +64,6 @@ function updateCourse (path, course) {
   })
 }
 
-
 const { path, courses } = loadConfig()
 
 clear()
@@ -67,16 +72,17 @@ const spinner = ora('Updating repos...')
 
 spinner.start()
 
-const promises = courses.map(course => updateCourse(path, course))
+if (!path) {
+  spinner.fail('No valid .dbwebb-update file found')
+} else {
+  const promises = courses.map(course => updateCourse(path, course))
 
-Promise.all(promises).then(() => {
-
-  spinner.succeed('Courses succesfully updated')
-
-}).catch((error) => {
-  spinner.fail(`${chalk.bgRed.black('Error')}: Could not update course : ${chalk.red(error)}`)
-})
-
+  Promise.all(promises).then(() => {
+    spinner.succeed('Courses succesfully updated')
+  }).catch((error) => {
+    spinner.fail(`${chalk.bgRed.black('Error')}: Could not update course : ${chalk.red(error)}`)
+  })
+}
 
 module.exports = {
   loadConfig,
