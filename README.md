@@ -1,4 +1,4 @@
-# dbwebb-updater [![Build Status](https://travis-ci.com/henrikfredriksson/dbwebb-updater.svg?branch=master)](https://travis-ci.com/henrikfredriksson/dbwebb-updater) [![Build Status](https://scrutinizer-ci.com/g/henrikfredriksson/dbwebb-updater/badges/build.png?b=master)](https://scrutinizer-ci.com/g/henrikfredriksson/dbwebb-updater/build-status/master) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/henrikfredriksson/dbwebb-updater/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/henrikfredriksson/dbwebb-updater/?branch=master)
+# dbwebb-updater [![Build Status](https://travis-ci.com/henrikfredriksson/dbwebb-updater.svg?branch=master)](https://travis-ci.com/henrikfredriksson/dbwebb-updater) [![Build Status](https://scrutinizer-ci.com/g/henrikfredriksson/dbwebb-updater/badges/build.png?b=master)](https://scrutinizer-ci.com/g/henrikfredriksson/dbwebb-updater/build-status/master) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/henrikfredriksson/dbwebb-updater/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/henrikfredriksson/dbwebb-updater/?branch=master) <a href="https://standardjs.com"><img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg" alt="Standard - JavaScript Style Guide"></a>
 
 A small CLI app to update dbwebb-course repos with .
 
@@ -10,17 +10,17 @@ Create a `.dbwebb-update` in your home directory
 
 ```json
 {
-    "path": "~/dbwebb-kurser/",
-    "courses": [
-        "databas",
-        "design",
-        "htmlphp",
-        "javascript1",
-        "oophp",
-        "oopython",
-        "python",
-        "webapp"
-    ]
+  "path": "~/dbwebb-kurser/",
+  "courses": [
+    "databas",
+    "design",
+    "htmlphp",
+    "javascript1",
+    "oophp",
+    "oopython",
+    "python",
+    "webapp"
+  ]
 }
 ```
 
