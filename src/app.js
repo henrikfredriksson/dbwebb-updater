@@ -59,7 +59,7 @@ function updateCourse (path, course) {
         reject(course)
       }
 
-      resolve()
+      resolve(course)
     })
   })
 }

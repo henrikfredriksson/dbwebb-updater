@@ -35,7 +35,7 @@ yarn install #npm install
 Make it executable by running:
 
 ```sh
-$ chmod +x app.sh
+$ chmod +x app.js
 ```
 
 or create a single executable file
